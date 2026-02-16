@@ -80,6 +80,7 @@ If all modules were loaded, the following mappings are available:
 - <kbd>g</kbd> - Interactive grep.
 - <kbd>p</kbd> - Project selector.
 - <kbd>Alt</kbd>+<kbd>p</kbd> - Project related commands.
+- <kbd>r</kbd> - List of recent files open.
 
 When Kakoune runs inside Tmux, fzf.kak will use the bottom split to display the `fzf` window.
 Additional keybindings are also made available to open files in a vertical or horizontal split.
@@ -249,6 +250,25 @@ The location of this file and its name can be changed by modifying the `fzf_proj
 By default project paths that start from the home directory will use `~` instead of the real path.
 To change this, set `fzf_project_use_tilda` option to `false`.
 
+
+### Recent
+
+| module        |
+|---------------|
+| `fzf-recent`  |
+
+Show a list of recent files open (MRU).
+from: https://github.com/kkga/kks
+For this to work:
+requires sponge from moreutils: https://joeyh.name/code/moreutils/
+Create a file as `/$HOME/.cache/kak-mru` and add the following in your kakrc:
+```kak
+hook global BufCreate [^*].* %{
+    nop %sh{
+        mru=~/.cache/kak-mru
+            echo "$kak_buffile" | awk '!seen[$0]++' - "$mru" | sponge "$mru"
+}}
+```
 
 ## `fzf` command
 
