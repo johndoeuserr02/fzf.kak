@@ -1,4 +1,6 @@
 # Author: Andrey Listopadov
+# Module for opening a list of recent files open
+# https://github.com/andreyorst/fzf.kak
 
 hook global ModuleLoaded fzf %{
     map global fzf -docstring "open recent file list" 'r' '<esc>: require-module fzf-recent; fzf-recent<ret>'
