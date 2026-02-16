@@ -1,22 +1,4 @@
 # Author: Andrey Listopadov
-# Module for changing buffers with fzf for fzf.kak plugin
-# https://github.com/andreyorst/fzf.kak
-
-# pick recent file
-#
-# requires:
-# - fzf (https://github.com/junegunn/fzf)
-
-# from:
-    # https://github.com/kkga/kks
-# for this to work, add the following in kakrc:
-# (requires sponge from moreutils: https://joeyh.name/code/moreutils/)
-# hook global BufCreate [^*].* %{
-#     nop %sh{
-#         mru=~/.cache/kak-mru
-#         echo "$kak_buffile" | awk '!seen[$0]++' - "$mru" | sponge "$mru"
-#     }
-# }
 
 hook global ModuleLoaded fzf %{
     map global fzf -docstring "open recent file list" 'r' '<esc>: require-module fzf-recent; fzf-recent<ret>'
