@@ -259,8 +259,8 @@ To change this, set `fzf_project_use_tilda` option to `false`.
 
 Show a list of recent files open (MRU).
 from: https://github.com/kkga/kks
-For this to work:
-requires sponge from moreutils: https://joeyh.name/code/moreutils/
+For this to wors, requires: 
+sponge from moreutils: https://joeyh.name/code/moreutils/
 Create a file as `/$HOME/.cache/kak-mru` and add the following in your kakrc:
 ```kak
 hook global BufCreate [^*].* %{
