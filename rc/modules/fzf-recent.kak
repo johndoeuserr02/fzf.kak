@@ -19,7 +19,6 @@ define-command -hidden fzf-recent %{ evaluate-commands %sh{
         [ -z "$line" ] && continue
         recents="$line
 $recents"
-        shift
     done
     
     message="Set recent to edit in current client.
